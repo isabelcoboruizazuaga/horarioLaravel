@@ -23,7 +23,7 @@ class Hora extends Model
         return Hora::find($diaH,$horaH);
     }
 
-    public function obtenerAsignaturasPorCodAs($codAs){
+    public function obtenerHorasPorCodAs($codAs){
             return Hora::where('codAs', '=', $codAs);
     }
 }
