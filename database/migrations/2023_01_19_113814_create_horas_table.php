@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('horas', function (Blueprint $table) {
             $table->integer("diaH");
             $table->integer("horaH");
-            $table->primary(['diaH','horaH']);
+            $table->string("codAs");
+
+            $table->primary(['diaH', 'horaH']);
+            $table->foreign("codAs")->references("codAs")->on("asignaturas")->onDelete("cascade");
         });
     }
 
