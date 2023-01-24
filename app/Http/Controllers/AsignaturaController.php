@@ -51,24 +51,26 @@ class AsignaturaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $user_id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($user_id)
+    public function show($id)
     {
-        $asignatura = $this->asignaturas->obtenerAsignaturasPorUserId($user_id);
+        $asignatura = $this->asignaturas->obtenerAsignaturaPorCod($id);
         return view('asignaturas.ver', ['asignatura' => $asignatura]);
+        /*$asignatura = $this->asignaturas->obtenerAsignaturasPorUserId($user_id);
+        return view('asignaturas.ver', ['asignatura' => $asignatura]);*/
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $codAs
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($codAs)
+    public function edit($id)
     {
-        $asignatura = $this->asignaturas->obtenerAsignaturaPorCod($codAs);
+        $asignatura = $this->asignaturas->obtenerAsignaturaPorCod($id);
         return view('asignaturas.editar', ['asignatura' => $asignatura]);
     }
 
@@ -76,12 +78,12 @@ class AsignaturaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $codAs
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $codAs)
+    public function update(Request $request, $id)
     {
-        $asignatura = Asignatura::find($codAs);
+        $asignatura = Asignatura::find($id);
         $asignatura->fill($request->all());
         $asignatura->save();
         return redirect()->action([AsignaturaController::class, 'index']);
@@ -93,9 +95,9 @@ class AsignaturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($codAs)
+    public function destroy($id)
     {
-        $asignatura = Asignatura::find($codAs);
+        $asignatura = Asignatura::find($id);
         $asignatura->delete();
         return redirect()->action([AsignaturaController::class, 'index']);
     }

@@ -48,19 +48,19 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div>
-                    <form action="/asignaturas/crear" method="POST">
+                    <form action="/asignaturas/editar/{{ $asignatura->id}}" method="POST">
                         @csrf
-                        <label>Código asignatura:</label>
-                        <input type="text" name="id" placeholder="Código de la asignatura">
+                        {{ method_field('PUT') }}
+                        <input type="hidden" name="id" placeholder="Código de la asignatura" value="{{ $asignatura->id}}" />
                         <label>Nombre Asignatura:</label>
-                        <input type="text" name="nombreAs" placeholder="Nombre de la asignatura">
+                        <input type="text" name="nombreAs" placeholder="Nombre de la asignatura" value="{{ $asignatura->nombreAs}}"/>
                         <label>Nombre Corto Asignatura:</label>
-                        <input type="text" name="nombreCortoAs" placeholder="Nombre corto de la asignatura">
+                        <input type="text" name="nombreCortoAs" placeholder="Nombre corto de la asignatura" value="{{ $asignatura->nombreCortoAs}}"/>
                         <label>Profesor Asignatura:</label>
-                        <input type="text" name="profesorAs" placeholder="Profesor de la asignatura">
+                        <input type="text" name="profesorAs" placeholder="Profesor de la asignatura" value="{{ $asignatura->profesorAs}}"/>
                         <label>Color Asignatura:</label>
-                        <input type="text" name="colorAs" placeholder="Color de la asignatura">
-                        <input type="hidden" name="user_id" value="{{Auth::user()->id}}" >
+                        <input type="text" name="colorAs" placeholder="Color de la asignatura" value="{{ $asignatura->colorAs}}"/>
+                        <input type="hidden" name="user_id" value="{{Auth::user()->id}}" />
                         <input type="submit" value="Guardar">
                     </form>
                 </div>

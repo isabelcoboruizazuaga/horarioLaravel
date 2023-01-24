@@ -10,16 +10,16 @@ class Asignatura extends Model
     use HasFactory;
 
     protected $table = "asignaturas";
-    protected $fillable = ['codAs',"user_id",'nombreAs', 'nombreCortoAs', 'profesorAs', 'colorAs'];
+    protected $fillable = ['id',"user_id",'nombreAs', 'nombreCortoAs', 'profesorAs', 'colorAs'];
     
     public function obtenerAsignatura()
     {
         return Asignatura::all();
     }
 
-    public function obtenerAsignaturaPorCod($codAs)
+    public function obtenerAsignaturaPorCod($id)
     {
-        return Asignatura::find($codAs);
+        return Asignatura::where('id', $id)->first();
     }
 
     public function obtenerAsignaturasPorUserId($user_id){

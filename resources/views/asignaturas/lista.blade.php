@@ -67,9 +67,9 @@
                             <td>{{ $asignatura->profesorAs }}</td>
                             <td>{{ $asignatura->colorAs }}</td>
                             <td>
-                                <a href="/asignaturas/ver/{{$asignatura->codAs}}">Ver</a>
-                                <a href="/asignaturas/editar/{{$asignatura->codAs}}">Editar</a>
-                                <a href="/asignaturas/eliminar/{{$asignatura->codAs}}" onclick="return eliminarAsignatura('Eliminar Asignatura')"> Eliminar</a>
+                                <a href="/asignaturas/ver/{{$asignatura->id}}">Ver</a>
+                                <a href="/asignaturas/editar/{{$asignatura->id}}">Editar</a>
+                                <a href="/asignaturas/eliminar/{{$asignatura->id}}" onclick="return eliminarAsignatura('Eliminar Asignatura')"> Eliminar</a>
                             </td>
                         </tr>
                         @endforeach

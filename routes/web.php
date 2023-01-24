@@ -34,4 +34,9 @@ Route::get('/asignaturas', [AsignaturaController::class, 'index'])->middleware([
 Route::get('/asignaturas/crear', [AsignaturaController::class, 'create']);
 Route::post('/asignaturas/crear',  [AsignaturaController::class, 'store']);
 
+Route::get('/asignaturas/ver/{id}', [AsignaturaController::class, 'show']);
+
+Route::get('/asignaturas/editar/{id}', [AsignaturaController::class, 'edit']);
+Route::put('/asignaturas/editar/{id}',  [AsignaturaController::class, 'update']);
+
 require __DIR__.'/auth.php';
