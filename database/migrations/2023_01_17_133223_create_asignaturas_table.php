@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger("user_id");
             $table->string('nombreAs');
             $table->string('nombreCortoAs');
-            $table->integer('profesorAs');
+            $table->string('profesorAs');
             $table->string('colorAs');
             $table->timestamps();
 

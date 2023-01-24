@@ -10,8 +10,7 @@ class Asignatura extends Model
     use HasFactory;
 
     protected $table = "asignaturas";
-    protected $fillable = ['nombreAs', 'nombreCortoAs', 'profesorAs', 'colorAs'];
-    protected $hidden = ['codAs', "user_id"];
+    protected $fillable = ['codAs',"user_id",'nombreAs', 'nombreCortoAs', 'profesorAs', 'colorAs'];
     
     public function obtenerAsignatura()
     {
