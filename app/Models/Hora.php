@@ -10,8 +10,7 @@ class Hora extends Model
     use HasFactory;
     
     protected $table = "horas";
-    protected $fillable = ['diaH', 'horaH'];
-    protected $hidden = ['codAs'];
+    protected $fillable = ['diaH', 'horaH','codAs'];
 
     public function obtenerHora()
     {

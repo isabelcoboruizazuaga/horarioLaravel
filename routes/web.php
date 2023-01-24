@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AsignaturaController;
+use App\Http\Controllers\HoraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,14 @@ Route::get('/asignaturas/editar/{id}', [AsignaturaController::class, 'edit']);
 Route::put('/asignaturas/editar/{id}',  [AsignaturaController::class, 'update']);
 
 Route::get('/asignaturas/eliminar/{id}',  [AsignaturaController::class, 'destroy']);
+
+
+
+Route::get('/horas', [HoraController::class, 'index'])->middleware(['auth', 'verified'])->name('horas');
+
+
+Route::get('/horas/crear', [HoraController::class, 'create']);
+Route::post('/horas/crear',  [HoraController::class, 'store']);
 
 
 require __DIR__.'/auth.php';

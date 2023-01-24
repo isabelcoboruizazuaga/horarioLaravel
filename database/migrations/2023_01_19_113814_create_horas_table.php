@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer("diaH");
             $table->integer("horaH");
             $table->string("codAs");
+            $table->timestamps();
 
             $table->primary(['diaH', 'horaH']);
             $table->foreign("codAs")->references("codAs")->on("asignaturas")->onDelete("cascade");

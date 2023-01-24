@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Hora;
+use App\Models\Asignatura;
+use App\Http\Controllers\AsignaturaController;
 
 class HoraController extends Controller
 {
-    protected $horas;
-    public function __construct(Hora $horas)
+    protected $horas, $asignaturas;
+    public function __construct(Hora $horas,Asignatura $asignaturas)
     {
         $this->horas = $horas;
+        $this->asignaturas = $asignaturas;
     }
 
     /**
@@ -20,6 +23,7 @@ class HoraController extends Controller
      */
     public function index()
     {
+        
         $horas = $this->horas->obtenerHora();
         return view('horas.lista', ['horas' => $horas]);
     }
@@ -31,7 +35,8 @@ class HoraController extends Controller
      */
     public function create()
     {
-        return view('horas.crear');
+        $asignaturas = $this->asignaturas->obtenerAsignatura();
+        return view('horas.crear',['asignaturas' => $asignaturas]);
     }
 
     /**

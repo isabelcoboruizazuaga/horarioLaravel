@@ -18,7 +18,7 @@
                     <x-nav-link :href="route('asignaturas')" :active="request()->routeIs('/asignaturas')">
                         {{ __('Asignaturas') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('horas')" :active="request()->routeIs('/horas')">
                         {{ __('Horario?') }}
                     </x-nav-link>
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
