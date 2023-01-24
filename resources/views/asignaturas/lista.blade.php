@@ -77,7 +77,6 @@
 
                     <br>
                     <a href="/asignaturas/crear">Nuevo asignatura</a>
-                    <a href="/asignaturas/formulario">Saludarte</a>
                     </body>
 
                     <script>

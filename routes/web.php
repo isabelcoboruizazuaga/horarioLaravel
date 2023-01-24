@@ -39,4 +39,7 @@ Route::get('/asignaturas/ver/{id}', [AsignaturaController::class, 'show']);
 Route::get('/asignaturas/editar/{id}', [AsignaturaController::class, 'edit']);
 Route::put('/asignaturas/editar/{id}',  [AsignaturaController::class, 'update']);
 
+Route::get('/asignaturas/eliminar/{id}',  [AsignaturaController::class, 'destroy']);
+
+
 require __DIR__.'/auth.php';

@@ -60,7 +60,7 @@
                         <input type="text" name="profesorAs" placeholder="Profesor de la asignatura">
                         <label>Color Asignatura:</label>
                         <input type="text" name="colorAs" placeholder="Color de la asignatura">
-                        <input type="hidden" name="user_id" value="{{Auth::user()->id}}" >
+                        <input type="hidden" name="user_id" value="{{optional(Auth::user())->id;}}" >
                         <input type="submit" value="Guardar">
                     </form>
                 </div>
