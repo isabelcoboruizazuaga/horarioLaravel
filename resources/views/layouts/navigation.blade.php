@@ -5,24 +5,24 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('horas') }}">
+                    <a href="{{ route('horario') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('horas')" :active="request()->routeIs('/horas')">
+                    <x-nav-link :href="route('horario')" :active="request()->routeIs('/horario')">
                         {{ __('Horario') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('horas')" :active="request()->routeIs('/horas')">
+                        {{ __('Horas Cambia en navifation.blade') }}
                     </x-nav-link>
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('asignaturas')" :active="request()->routeIs('/asignaturas')">
                         {{ __('Asignaturas') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Cambia en navifation.blade') }}
                     </x-nav-link>
                 </div>
             </div>

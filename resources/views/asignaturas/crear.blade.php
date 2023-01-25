@@ -51,7 +51,8 @@
                     <form action="/asignaturas/crear" method="POST">
                         @csrf
                         <label>Código asignatura:</label>
-                        <input type="text" name="id" placeholder="Código de la asignatura">
+                        <input type="number" name="id" placeholder="Código de la asignatura">
+                        <br>
                         <label>Nombre Asignatura:</label>
                         <input type="text" name="nombreAs" placeholder="Nombre de la asignatura">
                         <label>Nombre Corto Asignatura:</label>

@@ -1,7 +1,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Laravel</title>
+    <title>Horas</title>
 
     <style>
         table,
@@ -54,32 +54,41 @@
                 <div>
                     <table>
                         <tr>
-                            <th>Hora/Día</th>
-                            <th>Lunes</th>
-                            <th>Martes</th>
-                            <th>Miércoles</th>
-                            <th>Jueves</th>
-                            <th>Viernes</th>
+                            <th>Dia</th>
+                            <th>Hora</th>
+                            <th>Asignatura</th>
                         </tr>
 
-                        @for ($i = 1; $i <= 6; $i++)
-                            <tr>
-                                <td>{{$i}}ª</td>
-                                @for ($j = 1; $j <= 5; $j++)
-                                    @foreach ($horas as $hora)                            
-                                        @if ($hora->horaH==$i && $hora->diaH==$j)                                            
-                                            @foreach ($asignaturas as $asignatura)                            
-                                                @if ($asignatura->id==$hora->codAs)
-                                                    <td>{{$asignatura->nombreAs}}</td>                                            
-                                                @endif
-                                            @endforeach
-                                        @endif
-                                    @endforeach
-                                @endfor
-                            </tr>
-                        @endfor
+                        @foreach ($horas as $hora)
+                        <tr>
+                            @switch($hora->diaH)
+                            @case(1)
+                                <td> Lunes </td>
+                            @break
+                            @case(5)
+                                <td>Viernes </td>
+                            @break
+                            @case(2)
+                                <td>Martes </td>
+                            @break
+                            @case(3)
+                                <td> Miércoles </td>
+                            @break
+                            @case(4)
+                                <td> Jueves </td>
+                            @break
+                            @endswitch
+                            
+                            <td>{{ $hora->horaH }}ª</td>
+                            <td>{{ $hora->codAs }}</td>
+                            <td>
+                                <a href="/horas/ver/{{$hora->horaH,$hora->diaH}}">Ver</a>
+                                <a href="/horas/editar/{{$hora->horaH,$hora->diaH}}">Editar</a>
+                                <a href="/horas/eliminar/{{$hora->horaH,$hora->diaH}}" onclick="return eliminarHora('Eliminar Hora')"> Eliminar</a>
+                            </td>
+                        </tr>
+                        @endforeach
                     </table>
-
 
                     <br>
                     <a href="/horas/crear">Nueva hora</a>

@@ -44,7 +44,10 @@ Route::get('/asignaturas/eliminar/{id}',  [AsignaturaController::class, 'destroy
 
 
 
-Route::get('/horas', [HoraController::class, 'index'])->middleware(['auth', 'verified'])->name('horas');
+Route::get('/horario', [HoraController::class, 'index'])->middleware(['auth', 'verified'])->name('horario');
+
+
+Route::get('/horas', [HoraController::class, 'indexLista'])->middleware(['auth', 'verified'])->name('horas');
 
 
 Route::get('/horas/crear', [HoraController::class, 'create']);

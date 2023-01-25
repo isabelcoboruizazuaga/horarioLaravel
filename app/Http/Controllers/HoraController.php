@@ -26,6 +26,14 @@ class HoraController extends Controller
         
         $horas = $this->horas->obtenerHora();
         $asignaturas = $this->asignaturas->obtenerAsignatura();
+        return view('horas.horario', ['horas' => $horas,'asignaturas' => $asignaturas]);
+    }
+
+    public function indexLista()
+    {
+        
+        $horas = $this->horas->obtenerHora();
+        $asignaturas = $this->asignaturas->obtenerAsignatura();
         return view('horas.lista', ['horas' => $horas,'asignaturas' => $asignaturas]);
     }
 
