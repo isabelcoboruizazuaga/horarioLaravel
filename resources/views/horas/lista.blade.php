@@ -54,7 +54,7 @@
                 <div>
                     <table>
                         <tr>
-                            <th>Día/Hora</th>
+                            <th>Hora/Día</th>
                             <th>Lunes</th>
                             <th>Martes</th>
                             <th>Miércoles</th>
@@ -67,8 +67,12 @@
                                 <td>{{$i}}ª</td>
                                 @for ($j = 1; $j <= 5; $j++)
                                     @foreach ($horas as $hora)                            
-                                        @if ($hora->horaH==$i && $hora->diaH==$j)
-                                            <td>{{$hora->codAs}}</td>
+                                        @if ($hora->horaH==$i && $hora->diaH==$j)                                            
+                                            @foreach ($asignaturas as $asignatura)                            
+                                                @if ($asignatura->id==$hora->codAs)
+                                                    <td>{{$asignatura->nombreAs}}</td>                                            
+                                                @endif
+                                            @endforeach
                                         @endif
                                     @endforeach
                                 @endfor

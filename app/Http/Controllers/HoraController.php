@@ -25,7 +25,8 @@ class HoraController extends Controller
     {
         
         $horas = $this->horas->obtenerHora();
-        return view('horas.lista', ['horas' => $horas]);
+        $asignaturas = $this->asignaturas->obtenerAsignatura();
+        return view('horas.lista', ['horas' => $horas,'asignaturas' => $asignaturas]);
     }
 
     /**
