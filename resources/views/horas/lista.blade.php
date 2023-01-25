@@ -34,8 +34,8 @@
             font-size: 16px;
         }
 
-        
-        .bg-white > div {
+
+        .bg-white>div {
             padding: 20px;
         }
     </style>
@@ -54,22 +54,28 @@
                 <div>
                     <table>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Abreviatura</th>
+                            <th>Día/Hora</th>
+                            <th>Lunes</th>
+                            <th>Martes</th>
+                            <th>Miércoles</th>
+                            <th>Jueves</th>
+                            <th>Viernes</th>
                         </tr>
 
-                        @foreach ($horas as $hora)
-                        <tr>
-                            <td>{{ $hora->horaH }}</td>
-                            <td>{{ $hora->diaH }}</td>
-                            <td>
-                                <a href="/horas/ver/{{$hora->id}}">Ver</a>
-                                <a href="/horas/editar/{{$hora->id}}">Editar</a>
-                                <a href="/horas/eliminar/{{$hora->id}}" onclick="return eliminarHora('Eliminar Hora')"> Eliminar</a>
-                            </td>
-                        </tr>
-                        @endforeach
+                        @for ($i = 1; $i <= 6; $i++)
+                            <tr>
+                                <td>{{$i}}ª</td>
+                                @for ($j = 1; $j <= 5; $j++)
+                                    @foreach ($horas as $hora)                            
+                                        @if ($hora->horaH==$i && $hora->diaH==$j)
+                                            <td>{{$hora->codAs}}</td>
+                                        @endif
+                                    @endforeach
+                                @endfor
+                            </tr>
+                        @endfor
                     </table>
+
 
                     <br>
                     <a href="/horas/crear">Nueva hora</a>
