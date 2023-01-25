@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+/*Asignaturas*/ 
 Route::get('/asignaturas', [AsignaturaController::class, 'index'])->middleware(['auth', 'verified'])->name('asignaturas');;
 
 Route::get('/asignaturas/crear', [AsignaturaController::class, 'create']);
@@ -43,15 +44,19 @@ Route::put('/asignaturas/editar/{id}',  [AsignaturaController::class, 'update'])
 Route::get('/asignaturas/eliminar/{id}',  [AsignaturaController::class, 'destroy']);
 
 
-
+/*Horario*/ 
 Route::get('/horario', [HoraController::class, 'index'])->middleware(['auth', 'verified'])->name('horario');
 
 
+/*Horas*/ 
 Route::get('/horas', [HoraController::class, 'indexLista'])->middleware(['auth', 'verified'])->name('horas');
-
 
 Route::get('/horas/crear', [HoraController::class, 'create']);
 Route::post('/horas/crear',  [HoraController::class, 'store']);
+
+
+Route::get('/horas/editar/{{$pk}}', [HoraController::class, 'edit']);
+Route::put('/horas/editar/{{$pk}}',  [HoraController::class, 'update']);
 
 
 require __DIR__.'/auth.php';

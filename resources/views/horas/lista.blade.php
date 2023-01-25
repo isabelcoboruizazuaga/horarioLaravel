@@ -82,9 +82,11 @@
                             <td>{{ $hora->horaH }}ª</td>
                             <td>{{ $hora->codAs }}</td>
                             <td>
-                                <a href="/horas/ver/{{$hora->horaH,$hora->diaH}}">Ver</a>
-                                <a href="/horas/editar/{{$hora->horaH,$hora->diaH}}">Editar</a>
-                                <a href="/horas/eliminar/{{$hora->horaH,$hora->diaH}}" onclick="return eliminarHora('Eliminar Hora')"> Eliminar</a>
+                                <?php 
+                                 $pk= serialize([$hora->horaH,$hora->diaH]);
+                                ?>
+                                <a href="/horas/editar/{{$pk}}">Editar</a>
+                                <a href="/horas/eliminar/{{$pk}}" onclick="return eliminarHora('Eliminar Hora')"> Eliminar</a>
                             </td>
                         </tr>
                         @endforeach

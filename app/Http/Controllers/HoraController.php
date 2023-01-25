@@ -79,8 +79,12 @@ class HoraController extends Controller
      * @param  int  $diaH,$horaH
      * @return \Illuminate\Http\Response
      */
-    public function edit($diaH,$horaH)
+    public function edit($pk)
     {
+        $pk = unserialize($pk);
+        $diaH= $pk[0];
+        $horaH= $pk[1];
+
         $hora = $this->horas->obtenerHoraPorCod($diaH,$horaH);
         return view('horas.editar', ['hora' => $hora]);
     }
